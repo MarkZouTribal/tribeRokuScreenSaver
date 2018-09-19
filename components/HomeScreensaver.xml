@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="HomeScreensaver" extends="Scene">
+
+<script type="text/brightscript" uri = "pkg:/components/HomeScreensaver.brs"/>
+
+<children>
+
+<!-- Makes 2 Posters on top of each other -->
+	<Poster
+		id = "Background1"
+		opacity = "1"
+		translation = "[0,0]"
+		width="1920"
+		height="1080"
+		uri="pkg:/images/FHD/slide0.png"
+		/>
+
+		<Poster
+			id = "Background2"
+			opacity = "1"
+			translation = "[0,0]"
+			width="1920"
+			height="1080"
+			/>
+			<Animation id="dispAnimation"
+	      duration="3"
+	      repeat="false"
+	      easeFunction="outQuad" >
+	        <FloatFieldInterpolator id="opacityInterp"
+	          key="[0.0, 1.0]"
+	          keyValue="[0.0, 1.0]"
+	          fieldToInterp="Background2.opacity" />
+	    </Animation>
+</children>
+</component>
