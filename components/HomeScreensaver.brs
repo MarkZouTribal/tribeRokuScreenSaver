@@ -1,5 +1,10 @@
 
  function init()
+   ri = CreateObject("roDeviceInfo")
+   model = LCase(ri.GetModel())
+   m.deviceRes = ri.GetDisplaySize()
+   m.fullScreenResH = m.deviceRes.h
+   m.fullScreenResW = m.deviceRes.w
 
     m.urls = [
       "pkg:/images/FHD/slide0.png",
@@ -7,11 +12,21 @@
       "pkg:/images/FHD/slide2.png",
       "pkg:/images/FHD/slide3.png",
       "pkg:/images/FHD/slide4.png",
-      "pkg:/images/FHD/slide5.png"
+      "pkg:/images/FHD/slide5.png",
+      "pkg:/images/FHD/slide6.png"
     ]
 
     m.background1 = m.top.findNode("Background1")
     m.background2 = m.top.findNode("Background2")
+
+    m.background1.loadWidth = m.fullScreenResW
+    m.background1.loadHeight = m.fullScreenResH
+    m.background1.loadDisplayMode = "limitSize"
+
+    m.background2.loadWidth = m.fullScreenResW
+    m.background2.loadHeight = m.fullScreenResH
+    m.background2.loadDisplayMode = "limitSize"
+
 
     m.timer = createObject("roSGNode", "Timer")
     m.timer.duration = 8
