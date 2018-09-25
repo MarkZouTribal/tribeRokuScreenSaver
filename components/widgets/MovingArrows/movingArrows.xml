@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="GridAnimation" extends="Group">
+
+  <script type="text/brightscript" uri = "pkg:/components/widgets/MovingArrows/movingArrows.brs"/>
+  <interface>
+      <field id="matrixSize" type="integer" value="3"/>
+      <field id="unitSize" type="float" value="10.0"/>
+      <field id="color" type="color" value="#FFFFFF"/>
+      <field id="translation" type="array" alias="gridContainer.translation"/>
+      <function name="initializeGrid" />
+  </interface>
+
+  <children>
+    <Group id="gridContainer">
+    </Group>
+    <Timer id="controlTimer"
+      duration="3"
+      repeat="true"
+      />
+    <Timer id="animationTimer"
+      duration="0.1"
+      repeat="true"
+      />
+  </children>
+</component>

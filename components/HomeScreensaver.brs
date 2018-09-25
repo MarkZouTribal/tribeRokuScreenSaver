@@ -6,6 +6,8 @@
    m.fullScreenResH = m.deviceRes.h
    m.fullScreenResW = m.deviceRes.w
 
+   print "screen width ";m.deviceRes.w
+   print "screen height ";m.deviceRes.h
     m.urls = [
       "pkg:/images/FHD/slide0.png",
       "pkg:/images/FHD/slide1.png",
@@ -19,13 +21,9 @@
     m.background1 = m.top.findNode("Background1")
     m.background2 = m.top.findNode("Background2")
 
-    m.background1.loadWidth = m.fullScreenResW
-    m.background1.loadHeight = m.fullScreenResH
-    m.background1.loadDisplayMode = "limitSize"
+    m.background1.loadDisplayMode = "noScale"
 
-    m.background2.loadWidth = m.fullScreenResW
-    m.background2.loadHeight = m.fullScreenResH
-    m.background2.loadDisplayMode = "limitSize"
+    m.background2.loadDisplayMode = "noScale"
 
 
     m.timer = createObject("roSGNode", "Timer")
@@ -36,7 +34,7 @@
     m.timer.control = "start"
 
     m.renderTimer = createObject("roSGNode", "Timer")
-    m.renderTimer.duration = 1
+    m.renderTimer.duration = 2
     m.renderTimer.repeat = false
     m.renderTimer.observeField("fire", "onRender")
     m.anim = m.top.findNode("dispAnimation")
@@ -52,7 +50,6 @@ end function
 
 sub onTimerTriggered( event as Object )
 
-  print "onTimerTriggered"
   prevCount = m.counter
   m.counter ++
   if m.counter > 5 then m.counter = 0
